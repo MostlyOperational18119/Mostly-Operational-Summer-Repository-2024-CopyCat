@@ -21,8 +21,14 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
+    androidResources {
+        noCompress 'tflite'
+    }
 
     packagingOptions {
+        jniLibs {
+            pickFirsts += ['**/*.so']
+        }
         jniLibs.useLegacyPackaging true
     }
 }
