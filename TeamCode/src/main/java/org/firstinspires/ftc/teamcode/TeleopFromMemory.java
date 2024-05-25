@@ -12,12 +12,19 @@ public class TeleopFromMemory extends DriveMethods {
         DcMotor motorBR = hardwareMap.get(DcMotor.class, "motorBR");
         double speedDiv = 2.0;
 
+        telemetry.addLine("Status");
+        telemetry.addLine("Initialized");
+        telemetry.update();
+
         while(opModeIsActive()) {
             double leftX = gamepad1.left_stick_x;
             double leftY = gamepad2.left_stick_y;
             double rightX = gamepad1.right_stick_x;
 
-            
+            motorFL.setPower(-(leftY + leftX + rightX) / speedDiv);
+            motorBL.setPower(-(leftY - leftX + rightX) / speedDiv);
+            motorBR.setPower((leftY - leftX - rightX) / speedDiv);
+            motorFR.setPower((leftY + leftX - rightX) / speedDiv);
         }
     }
 }
