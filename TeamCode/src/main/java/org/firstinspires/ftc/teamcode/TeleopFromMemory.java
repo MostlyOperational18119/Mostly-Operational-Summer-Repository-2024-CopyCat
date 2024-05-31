@@ -1,8 +1,11 @@
 package org.firstinspires.ftc.teamcode;
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
+@TeleOp(name = "Basic Teleop", group = "Basic Chassis")
 public class TeleopFromMemory extends DriveMethods {
     @Override
     public void runOpMode() {
@@ -16,13 +19,14 @@ public class TeleopFromMemory extends DriveMethods {
         telemetry.addLine("Initialized");
         telemetry.update();
 
+        waitForStart();
         while(opModeIsActive()) {
             double leftX = gamepad1.left_stick_x;
-            double leftY = gamepad2.left_stick_y;
+            double leftY = gamepad1.left_stick_y;
             double rightX = gamepad1.right_stick_x;
 
-            motorFL.setPower(-(leftY + leftX + rightX) / speedDiv);
-            motorBL.setPower(-(leftY - leftX + rightX) / speedDiv);
+            motorFL.setPower((leftY + leftX + rightX) / speedDiv);
+            motorBL.setPower((leftY - leftX + rightX) / speedDiv);
             motorBR.setPower((leftY - leftX - rightX) / speedDiv);
             motorFR.setPower((leftY + leftX - rightX) / speedDiv);
         }
