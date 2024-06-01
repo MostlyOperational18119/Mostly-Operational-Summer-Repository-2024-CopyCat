@@ -25,8 +25,8 @@ public class TeleopFromMemory extends DriveMethods {
             double leftY = gamepad1.left_stick_y;
             double rightX = gamepad1.right_stick_x;
 
-            motorFL.setPower((leftY + leftX + rightX) / speedDiv);
-            motorBL.setPower((leftY - leftX + rightX) / speedDiv);
+            motorFL.setPower(-(leftY - leftX + rightX) / speedDiv);
+            motorBL.setPower(-(leftY + leftX + rightX) / speedDiv);
             motorBR.setPower((leftY - leftX - rightX) / speedDiv);
             motorFR.setPower((leftY + leftX - rightX) / speedDiv);
         }
