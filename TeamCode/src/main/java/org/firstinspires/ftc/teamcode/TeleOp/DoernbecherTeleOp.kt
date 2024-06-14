@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode
+package org.firstinspires.ftc.teamcode.TeleOp
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.DcMotorSimple
 import com.qualcomm.robotcore.hardware.Servo
 
-@TeleOp(name = "DoernbecherTeleopDjunaBot", group="Basic Chassis")
-class DoernbecherTeleOpDjunaBot: LinearOpMode() {
+@TeleOp(name = "DoernbecherTeleop", group="Basic Chassis")
+class DoernbecherTeleOp: LinearOpMode() {
     override fun runOpMode() {
         val motorFL = hardwareMap.get(DcMotor::class.java, "motorFL")
         //reverse FR
@@ -17,8 +17,8 @@ class DoernbecherTeleOpDjunaBot: LinearOpMode() {
         val motorBR = hardwareMap.get(DcMotor::class.java, "motorBR")
         val aimMotor = hardwareMap.get(DcMotor::class.java, "aimMotor")
         val airplaneServo = hardwareMap.get(Servo::class.java, "airplaneServo")
-        val lowerServoPosition = 0.85; //Bot 1 0.7; bot Djuna .6
-        val highestServoPosition = 0.6; // Bot 1 1.0; bot Djuna .85
+        val lowerServoPosition = 0.7;
+        val highestServoPosition = 1.0;
         val speedDiv = 2.0
 
         telemetry.addData("Status", "Initialized")
@@ -30,7 +30,7 @@ class DoernbecherTeleOpDjunaBot: LinearOpMode() {
             //leftY is intended for forward and backward
             val leftY = -gamepad1.left_stick_y
             //rigthX is indended for rotation
-            val rightX = -gamepad1.right_stick_x
+            val rightX = gamepad1.right_stick_x
 
             motorFL.power = (leftY + leftX + rightX) / speedDiv
             motorBL.power = (leftY - leftX + rightX) / speedDiv

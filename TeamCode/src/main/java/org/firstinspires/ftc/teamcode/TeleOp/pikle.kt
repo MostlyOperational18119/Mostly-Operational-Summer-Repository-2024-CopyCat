@@ -1,7 +1,8 @@
-package org.firstinspires.ftc.teamcode
+package org.firstinspires.ftc.teamcode.TeleOp
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
+import org.firstinspires.ftc.teamcode.DriveMethods
 
 @TeleOp(name = "pikle \uD83E\uDD70", group="pikle")
 class pikle: DriveMethods() {
