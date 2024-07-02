@@ -66,7 +66,7 @@ class pikleBlue: DriveMethods() {
             }
 
             if (launchToggle && gamepad1.a){
-                gateServo.position = 0.73
+                gateServo.position = 0.72
                 launchToggle = false
                 sleep(300)
             }
