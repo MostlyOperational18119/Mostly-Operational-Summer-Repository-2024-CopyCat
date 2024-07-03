@@ -42,11 +42,11 @@ class pikleBlue: DriveMethods() {
 
         while (opModeIsActive()) {
             //leftX is intended for strafing
-            val leftX = gamepad1.left_stick_x
+            val leftX = -gamepad1.left_stick_x*0.5
             //leftY is intended for forward and backward
-            val leftY = -gamepad1.left_stick_y
+            val leftY = gamepad1.left_stick_y*0.5
             //rigthX is indended for rotation
-            val rightX = gamepad1.right_stick_x
+            val rightX = gamepad1.right_stick_x*0.5
 
             motorFL.power = (leftY + leftX + rightX) / speedDiv
             motorBL.power = (leftY - leftX + rightX) / speedDiv
@@ -66,7 +66,7 @@ class pikleBlue: DriveMethods() {
             }
 
             if (launchToggle && gamepad1.a){
-                gateServo.position = 0.72
+                gateServo.position = 0.74
                 launchToggle = false
                 sleep(300)
             }
