@@ -1,10 +1,8 @@
 package org.firstinspires.ftc.teamcode.TeleOp
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
-import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.Servo
 import com.qualcomm.robotcore.hardware.TouchSensor
-import org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName
 import org.firstinspires.ftc.teamcode.DriveMethods
 import org.firstinspires.ftc.vision.VisionPortal
@@ -26,13 +24,13 @@ class saarangtest : DriveMethods() {
 
         waitForStart()
 
-        while(opModeIsActive()) {
+        while (opModeIsActive()) {
             //if (touch.isPressed) {
-                linear.position = 1.0
-                sleep(1000)
-                linear.position = 0.0
-                sleep(1000)
-           // }
+            linear.position = 1.0
+            sleep(1000)
+            linear.position = 0.0
+            sleep(1000)
+            // }
         }
     }
 }

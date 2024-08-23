@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.Servo
 
-@TeleOp(name = "ServoPositionTester", group="Basic Chassis")
-class ServoTesterForPositions: LinearOpMode() {
+@TeleOp(name = "ServoPositionTester", group = "Basic Chassis")
+class ServoTesterForPositions : LinearOpMode() {
     override fun runOpMode() {
         val airplaneServo = hardwareMap.get(Servo::class.java, "airplaneServo")
 
@@ -14,11 +14,11 @@ class ServoTesterForPositions: LinearOpMode() {
         waitForStart()
         telemetry.addData("Status", "Running")
         while (opModeIsActive()) {
-            if(gamepad1.a){
-                airplaneServo.position+=0.05;
+            if (gamepad1.a) {
+                airplaneServo.position += 0.05;
                 sleep(100)
-            }else if (gamepad1.b){
-                airplaneServo.position-=0.05;
+            } else if (gamepad1.b) {
+                airplaneServo.position -= 0.05;
                 sleep(100)
             }
             val servoPosition = airplaneServo.position;

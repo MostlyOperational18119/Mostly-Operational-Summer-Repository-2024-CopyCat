@@ -7,7 +7,7 @@ import org.firstinspires.ftc.vision.VisionProcessor
 import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor
 import org.firstinspires.ftc.vision.tfod.TfodProcessor
 
-abstract class DriveMethods: LinearOpMode() {
+abstract class DriveMethods : LinearOpMode() {
     fun createVisionPortal(processor: VisionProcessor): VisionPortal {
         val portal = VisionPortal.Builder()
             .addProcessors(processor)

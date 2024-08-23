@@ -1,11 +1,11 @@
 package org.firstinspires.ftc.teamcode.TeleOp
 
 import com.qualcomm.robotcore.hardware.DcMotor
-import com.qualcomm.robotcore.hardware.DcMotorSimple.Direction as MotorDirection
 import org.firstinspires.ftc.teamcode.DriveMethods
 import org.firstinspires.ftc.vision.apriltag.AprilTagDetection
+import com.qualcomm.robotcore.hardware.DcMotorSimple.Direction as MotorDirection
 
-class AprilTagTest: DriveMethods() {
+class AprilTagTest : DriveMethods() {
     override fun runOpMode() {
         // Setup vision
         val aprilTagProcessor = createAprilTagProcessor()

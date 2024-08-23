@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import org.firstinspires.ftc.teamcode.DriveMethods
 
 @TeleOp(name = "test")
-class test: DriveMethods() {
+class test : DriveMethods() {
     override fun runOpMode() {
         val motorFL = hardwareMap.get(DcMotor::class.java, "motorFL")
         val motorFR = hardwareMap.get(DcMotor::class.java, "motorFR")

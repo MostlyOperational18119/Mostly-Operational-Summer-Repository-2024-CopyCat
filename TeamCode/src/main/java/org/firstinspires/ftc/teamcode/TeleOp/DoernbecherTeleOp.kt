@@ -6,13 +6,13 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.DcMotorSimple
 import com.qualcomm.robotcore.hardware.Servo
 
-@TeleOp(name = "DoernbecherTeleop", group="Basic Chassis")
-class DoernbecherTeleOp: LinearOpMode() {
+@TeleOp(name = "DoernbecherTeleop", group = "Basic Chassis")
+class DoernbecherTeleOp : LinearOpMode() {
     override fun runOpMode() {
         val motorFL = hardwareMap.get(DcMotor::class.java, "motorFL")
         //reverse FR
         val motorFR = hardwareMap.get(DcMotor::class.java, "motorFR")
-        motorFR.direction=DcMotorSimple.Direction.REVERSE
+        motorFR.direction = DcMotorSimple.Direction.REVERSE
         val motorBL = hardwareMap.get(DcMotor::class.java, "motorBL")
         val motorBR = hardwareMap.get(DcMotor::class.java, "motorBR")
         val aimMotor = hardwareMap.get(DcMotor::class.java, "aimMotor")
@@ -40,23 +40,23 @@ class DoernbecherTeleOp: LinearOpMode() {
             telemetry.addData("Status", "Running")
 
             telemetry.addLine("motorFL: ${motorFL.power} motorFR: ${motorFR.power} motorBL: ${motorBL.power} motorBR: ${motorBR.power} ")
-            if (gamepad1.dpad_down && aimMotor.currentPosition<300) {
+            if (gamepad1.dpad_down && aimMotor.currentPosition < 300) {
                 telemetry.addLine("Running AIM Motor Original Position: ${aimMotor.currentPosition}")
                 aimMotor.power = 0.1
                 sleep(80)
                 aimMotor.power = 0.0
                 telemetry.addLine("Running AIM Motor New Position: ${aimMotor.currentPosition}")
-            }else if (gamepad1.dpad_up && aimMotor.currentPosition>-250) {
+            } else if (gamepad1.dpad_up && aimMotor.currentPosition > -250) {
                 telemetry.addLine("Running AIM Motor Original Position: ${aimMotor.currentPosition}")
-                aimMotor.power =- 0.2
+                aimMotor.power = -0.2
                 sleep(80)
                 aimMotor.power = 0.0
                 telemetry.addLine("Running AIM Motor New Position: ${aimMotor.currentPosition}")
             }
 
-            if(gamepad1.a){
+            if (gamepad1.a) {
                 airplaneServo.position = lowerServoPosition
-            } else if (gamepad1.b){
+            } else if (gamepad1.b) {
                 airplaneServo.position = highestServoPosition
             }
 

@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.DcMotorSimple
 import com.qualcomm.robotcore.hardware.Servo
 
-@TeleOp(name = "AirplameTeleop", group="AAAAAAAAAAA")
-class `0722_Airplane`: LinearOpMode() {
+@TeleOp(name = "AirplameTeleop", group = "AAAAAAAAAAA")
+class `0722_Airplane` : LinearOpMode() {
     override fun runOpMode() {
         val motorFL = hardwareMap.get(DcMotor::class.java, "motorFL")
         val motorFR = hardwareMap.get(DcMotor::class.java, "motorFR")
@@ -16,11 +16,11 @@ class `0722_Airplane`: LinearOpMode() {
         val airplaneServo = hardwareMap.get(Servo::class.java, "airplaneServo")
         val launchMotor = hardwareMap.get(DcMotor::class.java, "aimMotor")
 
-        motorFL.direction=DcMotorSimple.Direction.REVERSE;
-        motorBL.direction=DcMotorSimple.Direction.REVERSE;
-        motorBR.direction=DcMotorSimple.Direction.REVERSE;
-        launchMotor.mode=DcMotor.RunMode.STOP_AND_RESET_ENCODER;
-        launchMotor.mode=DcMotor.RunMode.RUN_USING_ENCODER;
+        motorFL.direction = DcMotorSimple.Direction.REVERSE;
+        motorBL.direction = DcMotorSimple.Direction.REVERSE;
+        motorBR.direction = DcMotorSimple.Direction.REVERSE;
+        launchMotor.mode = DcMotor.RunMode.STOP_AND_RESET_ENCODER;
+        launchMotor.mode = DcMotor.RunMode.RUN_USING_ENCODER;
 
         val lowerServoPosition = 0.65;
         val highestServoPosition = 0.95;
@@ -43,21 +43,19 @@ class `0722_Airplane`: LinearOpMode() {
             telemetry.addData("Status", "Running")
 
 
-            if(gamepad1.a){
-                airplaneServo.position=lowerServoPosition;
+            if (gamepad1.a) {
+                airplaneServo.position = lowerServoPosition;
                 sleep(1000)
-            }else if (gamepad1.b) {
-                airplaneServo.position=highestServoPosition;
+            } else if (gamepad1.b) {
+                airplaneServo.position = highestServoPosition;
                 sleep(1000)
             }
-            if(gamepad1.dpad_up && launchMotor.currentPosition<=250) {
-                launchMotor.power=.07;
-            }
-            else if (gamepad1.dpad_down && launchMotor.currentPosition>=0) {
-                launchMotor.power=-0.07;
-            }
-            else {
-                launchMotor.power=0.0;
+            if (gamepad1.dpad_up && launchMotor.currentPosition <= 250) {
+                launchMotor.power = .07;
+            } else if (gamepad1.dpad_down && launchMotor.currentPosition >= 0) {
+                launchMotor.power = -0.07;
+            } else {
+                launchMotor.power = 0.0;
             }
             telemetry.addData("Rotate Pos", launchMotor.currentPosition);
             telemetry.update();

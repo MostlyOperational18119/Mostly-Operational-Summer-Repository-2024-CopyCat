@@ -20,7 +20,7 @@ public class microBot extends LinearOpMode {
 
 
         waitForStart();
-        while(opModeIsActive()) {
+        while (opModeIsActive()) {
             double leftY = gamepad1.left_stick_y;
             double leftX = gamepad1.left_stick_x;
 

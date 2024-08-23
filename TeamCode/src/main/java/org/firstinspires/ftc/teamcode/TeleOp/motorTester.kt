@@ -3,8 +3,9 @@ package org.firstinspires.ftc.teamcode.TeleOp
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
-@TeleOp(name = "motorTester", group="Basic Chassis")
-class motorTester: LinearOpMode() {
+
+@TeleOp(name = "motorTester", group = "Basic Chassis")
+class motorTester : LinearOpMode() {
     override fun runOpMode() {
         val motorFL = hardwareMap.get(DcMotor::class.java, "motorFL")
         val motorFR = hardwareMap.get(DcMotor::class.java, "motorFR")
@@ -18,16 +19,16 @@ class motorTester: LinearOpMode() {
         waitForStart()
         telemetry.addData("Status", "Running")
         while (opModeIsActive()) {
-            if(gamepad1.a){
+            if (gamepad1.a) {
                 telemetry.addLine("Running motorFL");
-                motorFL.power=1.0;
-            }else if(gamepad1.b){
+                motorFL.power = 1.0;
+            } else if (gamepad1.b) {
                 telemetry.addLine("Running motorBL");
-                motorBL.power=1.0;
-            }else if(gamepad1.x){
+                motorBL.power = 1.0;
+            } else if (gamepad1.x) {
                 telemetry.addLine("Running motorBR");
-                motorBR.power=1.0;
-            }else if(gamepad1.y) {
+                motorBR.power = 1.0;
+            } else if (gamepad1.y) {
                 telemetry.addLine("Running motorFR");
                 motorFR.power = 1.0;
             }
@@ -38,9 +39,9 @@ class motorTester: LinearOpMode() {
 //                aimMotor.power=0.0;
 //                telemetry.addLine("Running AIM Motor New Position: ${aimMotor.currentPosition}");
 //            }
-            else{
-                motorBL.power=0.0;
-                motorBR.power=0.0;
+            else {
+                motorBL.power = 0.0;
+                motorBR.power = 0.0;
                 motorFL.power = 0.0;
                 motorFR.power = 0.0;
 //                aimMotor.power = 0.0;
